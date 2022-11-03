@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:untitled/meal%20app/models/meal.dart';
 
+import '../screens/meal_data_screen.dart';
+
 class MealItem extends StatelessWidget {
   final List<Meal> data;
   const MealItem({Key? key, required this.data}) : super(key: key);
@@ -43,7 +45,13 @@ class Meal_Item extends StatelessWidget {
 
           child: MaterialButton(
             padding: EdgeInsets.all(0),
-            onPressed: (){},
+            onPressed: (){
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => MealDataScreen(id:data[id].id ,data:data[id]))
+              );
+            },
              child: Container(
                decoration: BoxDecoration(             color: Colors.white,
                    borderRadius: BorderRadius.all(Radius.circular(20))),
@@ -82,19 +90,22 @@ class Meal_Item extends StatelessWidget {
                          Row(
                            children: [
                              Icon(Icons.access_alarm),
-                             Text(""),
+                             SizedBox(width: 10,),
+                             Text("${data[id].duration} min"),
                            ],
                          ), // Row
                          Row(
                            children: [
-                             Icon(Icons.access_alarm),
-                             Text(""),
+                             Icon(Icons.shopping_bag),
+                             SizedBox(width: 10,),
+                             Text("${data[id].complexity.toString().split(".")[1]}"),
                            ],
                          ), // Row
                          Row(
                            children: [
-                             Icon(Icons.access_alarm),
-                             Text(""),
+                             Icon(Icons.monetization_on),
+                             SizedBox(width: 10,),
+                             Text("${data[id].affordability.toString().split(".")[1]}"),
                            ],
                          ), // Row
                        ],
