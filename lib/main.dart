@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:untitled/meal%20app/meal_app.dart';
+import 'package:untitled/meal%20app/screens/filters_screen.dart';
 import 'package:untitled/quiz%20app/app.dart';
 import 'package:untitled/try.dart';
 
@@ -33,7 +34,11 @@ class MyApp extends StatelessWidget {
             ), // TextStyle
           )
       ), // ThemeData
-      home: Meal_App(),
+      // home: Meal_App(),
+      routes: {
+        '/':(context) => Meal_App(),
+        'filters':(context)=>FiltersScreen()
+      },
       // home: tryi(),
     );
   }
